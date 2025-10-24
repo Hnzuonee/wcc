@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WCC – World Chore Championships | Home-Athlon 2025 – Sezóna Praha</title>
+  <meta name="description" content="Oficiální web WCC – World Chore Championships. Home-Athlon 2025: Sezóna Praha. Nejsařší čistý sport na světě.">
+  <meta property="og:title" content="WCC – World Chore Championships | Home-Athlon 2025 – Sezóna Praha">
+  <meta property="og:description" content="Oficiální web WCC. Home-Athlon 2025 – Sezóna Praha. Kde se setkává rychlost, přesnost a čistota.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://worldchorechampionships.com/">
+  <!-- TODO: doplň náhledový obrázek -->
+  <meta property="og:image" content="https://worldchorechampionships.com/og-image.jpg">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (Play CDN pro rychlý start) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            graphite: '#0E0E0E',
+            arena: '#111214',
+            primary: '#E41C1C',
+            metal: '#C0C0C0'
+          },
+          fontFamily: {
+            display: ['Bebas Neue', 'Inter', 'ui-sans-serif', 'system-ui'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          },
+          boxShadow: {
+            glow: '0 0 40px rgba(228,28,28,0.35)',
+          },
+          backgroundImage: {
+            'hero-grid': 'radial-gradient(circle at 20% 20%, rgba(228,28,28,0.15) 0, transparent 35%), radial-gradient(circle at 80% 0%, rgba(192,192,192,0.15) 0, transparent 40%), linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 60%)',
+            'divider': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Jemné vyhlazení písma */
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  </style>
+</head>
+<body class="bg-graphite text-white font-sans">
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-graphite/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <!-- Simple WCC logo (SVG) -->
+        <svg width="40" height="40" viewBox="0 0 64 64" fill="none" aria-hidden="true" class="drop-shadow">
+          <rect x="2" y="2" width="60" height="60" rx="10" fill="#0E0E0E" stroke="#E41C1C" stroke-width="2"/>
+          <path d="M12 24h12l3 12 3-12h12l3 12 3-12h12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <div class="font-display text-2xl leading-none tracking-wide">WCC</div>
+          <div class="text-xs uppercase tracking-widest text-white/60">World Chore Championships</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#about" class="hover:text-primary transition">O WCC</a>
+        <a href="#season" class="hover:text-primary transition">Sezóna 2025</a>
+        <a href="#leaderboard" class="hover:text-primary transition">Žebříček</a>
+        <a href="#athletes" class="hover:text-primary transition">Týmy / Atleti</a>
+        <a href="#media" class="hover:text-primary transition">Média</a>
+        <a href="#sponsors" class="hover:text-primary transition">Partneři</a>
+        <a href="#join" class="hover:text-primary transition">Přihláška</a>
+        <a href="#rules" class="hover:text-primary transition">Pravidla</a>
+      </nav>
+      <a href="#media" class="hidden md:inline-flex px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 transition shadow-glow text-sm font-semibold">Sledovat highlighty</a>
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover:bg-white/5" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
+      <nav class="px-4 py-3 grid gap-2 text-sm">
+        <a href="#about" class="py-2 hover:text-primary">O WCC</a>
+        <a href="#season" class="py-2 hover:text-primary">Sezóna 2025</a>
+        <a href="#leaderboard" class="py-2 hover:text-primary">Žebříček</a>
+        <a href="#athletes" class="py-2 hover:text-primary">Týmy / Atleti</a>
+        <a href="#media" class="py-2 hover:text-primary">Média</a>
+        <a href="#sponsors" class="py-2 hover:text-primary">Partneři</a>
+        <a href="#join" class="py-2 hover:text-primary">Přihláška</a>
+        <a href="#rules" class="py-2 hover:text-primary">Pravidla</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-hero-grid"></div>
+    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 70% 30%, rgba(228,28,28,0.4), transparent 45%);"></div>
+    <div class="relative mx-auto max-w-7xl px-4 py-20 md:py-28">
+      <p class="uppercase tracking-[0.25em] text-white/70 text-xs md:text-sm">WCC představuje</p>
+      <h1 class="mt-2 font-display text-5xl md:text-7xl tracking-wide">HOME-ATHLON 2025</h1>
+      <h2 class="mt-1 text-xl md:text-2xl text-white/80">Sezóna Praha • Domyno Arena</h2>
+      <p class="mt-6 max-w-2xl text-white/80">Nejčistší sport na světě. Rychlost. Přesnost. Čistota. Oficiální soutěžní formát domácích prací pod hlavičkou World Chore Championships.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#media" class="px-5 py-3 rounded-xl bg-primary hover:bg-primary/90 shadow-glow font-semibold">Přehrát highlighty</a>
+        <a href="#athletes" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10">Seznámit se s atlety</a>
+        <a href="#join" class="px-5 py-3 rounded-xl bg-white/0 hover:bg-white/10 border border-white/20">Přihlásit se do další sezóny</a>
+      </div>
+    </div>
+    <div class="h-px w-full bg-divider"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h3 class="font-display text-3xl md:text-4xl tracking-wide">O WCC</h3>
+        <p class="mt-4 text-white/80 leading-relaxed">
+          Založeno v roce 2025. <strong>World Chore Championships</strong> je oficiální organizace soutěžních domácích sportů. 
+          Pod přísnými pravidly WCC závodí atleti v disciplínách jako <em>Dish Dash</em>, <em>Vacuum Sprint</em>, <em>Laundry Lift</em> nebo <em>Iron Control</em>.
+          Cíl je jednoduchý: <span class="text-white">nejrychlejší, nejpřesnější a nejčistší výkon</span>.
+        </p>
+        <a href="#rules" class="mt-6 inline-flex items-center gap-2 text-primary hover:underline">
+          Přečíst oficiální pravidla
+          <svg width="18" height="18" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12l5-5 5 5"/></svg>
+        </a>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-arena/40 p-6">
+        <!-- TODO: nahraď vizuálem / teaserem -->
+        <div class="aspect-video rounded-xl bg-[url('https://images.unsplash.com/photo-1520975928316-7b38d7f2c3a0?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <p class="mt-3 text-xs text-white/60">Teaser vizuál (nahraď vlastním artworkem).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEASON -->
+  <section id="season" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <h3 class="font-display text-3xl md:text-4xl tracking-wide">Sezóna 2025 – Disciplíny</h3>
+    <p class="mt-3 text-white/70">Všechny eventy jsou natáčeny živě v <strong>Domyno Arena, Praha</strong>.</p>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Card -->
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-5">
+        <div class="aspect-video rounded-xl bg-[url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <h4 class="mt-4 font-semibold">Dish Dash</h4>
+        <p class="text-sm text-white/70">Čas, čistota, technika. Identické vybavení pro všechny.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-5">
+        <div class="aspect-video rounded-xl bg-[url('https://images.unsplash.com/photo-1516280030429-27679b3dc9cf?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <h4 class="mt-4 font-semibold">Vacuum Sprint</h4>
+        <p class="text-sm text-white/70">Trajektorie a rychlost. Penalizace za vynechané zóny.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-5">
+        <div class="aspect-video rounded-xl bg-[url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <h4 class="mt-4 font-semibold">Laundry Lift</h4>
+        <p class="text-sm text-white/70">Věšení s přesností, časové přechody, kontrola kolíků.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-5">
+        <div class="aspect-video rounded-xl bg-[url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <h4 class="mt-4 font-semibold">Iron Control</h4>
+        <p class="text-sm text-white/70">Teplota, trajektorie, počet záhybů. Bodování elegance.</p>
+      </article>
+    </div>
+    <div class="mt-8 h-px w-full bg-divider"></div>
+    <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
+      <p class="text-white/70">„Live from Prague – only the fastest hands survive.“</p>
+      <!-- TODO: doplň detailní harmonogram -->
+      <a href="#" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/15 border border-white/10">Zobrazit harmonogram</a>
+    </div>
+  </section>
+
+  <!-- LEADERBOARD -->
+  <section id="leaderboard" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <h3 class="font-display text-3xl md:text-4xl tracking-wide">Žebříček</h3>
+    <div class="mt-6 overflow-x-auto rounded-2xl border border-white/10">
+      <table class="min-w-full divide-y divide-white/10">
+        <thead class="bg-white/5">
+          <tr class="text-left text-sm text-white/70">
+            <th class="px-4 py-3 font-medium">#</th>
+            <th class="px-4 py-3 font-medium">Athlete</th>
+            <th class="px-4 py-3 font-medium">Země</th>
+            <th class="px-4 py-3 font-medium">Body</th>
+            <th class="px-4 py-3 font-medium">Nej disciplína</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/10">
+          <tr class="hover:bg-white/5">
+            <td class="px-4 py-3">1</td>
+            <td class="px-4 py-3 font-semibold">Tereza #04</td>
+            <td class="px-4 py-3">CZE</td>
+            <td class="px-4 py-3">92</td>
+            <td class="px-4 py-3">Dish Dash</td>
+          </tr>
+          <tr class="hover:bg-white/5">
+            <td class="px-4 py-3">2</td>
+            <td class="px-4 py-3 font-semibold">Anna #02</td>
+            <td class="px-4 py-3">SVK</td>
+            <td class="px-4 py-3">88</td>
+            <td class="px-4 py-3">Laundry Lift</td>
+          </tr>
+          <tr class="hover:bg-white/5">
+            <td class="px-4 py-3">3</td>
+            <td class="px-4 py-3 font-semibold">Monica #07</td>
+            <td class="px-4 py-3">POL</td>
+            <td class="px-4 py-3">85</td>
+            <td class="px-4 py-3">Vacuum Sprint</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-3 text-xs text-white/60">*Data jsou ilustrační. Nahraď reálnými výsledky.</p>
+  </section>
+
+  <!-- ATHLETES -->
+  <section id="athletes" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <h3 class="font-display text-3xl md:text-4xl tracking-wide">Atleti</h3>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Athlete Card -->
+      <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden">
+        <div class="aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1598550476439-6847785fcea0?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <div class="p-5">
+          <h4 class="font-semibold">Tereza <span class="text-white/50">#04</span></h4>
+          <p class="text-sm text-white/70">CZE • Síla: Přesnost</p>
+          <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Speed</div><div class="text-lg font-bold">97</div></div>
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Accuracy</div><div class="text-lg font-bold">91</div></div>
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Elegance</div><div class="text-lg font-bold">89</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden">
+        <div class="aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <div class="p-5">
+          <h4 class="font-semibold">Anna <span class="text-white/50">#02</span></h4>
+          <p class="text-sm text-white/70">SVK • Síla: Laundry Lift</p>
+          <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Speed</div><div class="text-lg font-bold">92</div></div>
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Accuracy</div><div class="text-lg font-bold">88</div></div>
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Elegance</div><div class="text-lg font-bold">86</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden">
+        <div class="aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1542326237-94b1c5a538d6?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <div class="p-5">
+          <h4 class="font-semibold">Monica <span class="text-white/50">#07</span></h4>
+          <p class="text-sm text-white/70">POL • Síla: Vacuum Sprint</p>
+          <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Speed</div><div class="text-lg font-bold">94</div></div>
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Accuracy</div><div class="text-lg font-bold">85</div></div>
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Elegance</div><div class="text-lg font-bold">83</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden">
+        <div class="aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <div class="p-5">
+          <h4 class="font-semibold">Klara <span class="text-white/50">#11</span></h4>
+          <p class="text-sm text-white/70">AUT • Síla: Iron Control</p>
+          <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Speed</div><div class="text-lg font-bold">90</div></div>
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Accuracy</div><div class="text-lg font-bold">92</div></div>
+            <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Elegance</div><div class="text-lg font-bold">88</div></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section id="media" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <h3 class="font-display text-3xl md:text-4xl tracking-wide">Média & Highlighty</h3>
+    <p class="mt-2 text-white/70">Oficiální záznamy, sestřihy a behind-the-scenes.</p>
+    <div class="mt-8 grid lg:grid-cols-3 gap-6">
+      <!-- TODO: nahraď reálnými videi (YouTube/Shorts) -->
+      <div class="rounded-2xl border border-white/10 bg-arena/40 p-3">
+        <div class="aspect-video">
+          <iframe class="w-full h-full rounded-xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Highlight" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="px-2 py-3">
+          <div class="font-semibold">Home-Athlon 2025: Teaser</div>
+          <div class="text-xs text-white/60">Oficiální upoutávka • WCC</div>
+        </div>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-arena/40 p-3">
+        <div class="aspect-video">
+          <iframe class="w-full h-full rounded-xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Highlight" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="px-2 py-3">
+          <div class="font-semibold">Top 5 momentů – Dish Dash</div>
+          <div class="text-xs text-white/60">Sestřih • Domyno Arena</div>
+        </div>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-arena/40 p-3">
+        <div class="aspect-video">
+          <iframe class="w-full h-full rounded-xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Highlight" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="px-2 py-3">
+          <div class="font-semibold">Behind the Scenes</div>
+          <div class="text-xs text-white/60">Oficiální střih • Filmový tým</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section id="sponsors" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <div class="rounded-2xl border border-white/10 bg-arena/40 p-6">
+      <div class="flex items-center justify-between flex-wrap gap-6">
+        <div>
+          <h3 class="font-display text-3xl md:text-4xl tracking-wide">Partneři</h3>
+          <p class="mt-2 text-white/70 max-w-xl">Oficiální partneři podporující budoucnost domácí atletiky. Mediální spolupráce: Extra.cz, Refresher, aj.</p>
+        </div>
+        <a href="#become-partner" class="px-5 py-3 rounded-xl bg-primary hover:bg-primary/90 shadow-glow font-semibold">Stát se partnerem</a>
+      </div>
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+        <!-- TODO: nahraď logy partnerů -->
+        <div class="h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/50">FORTUNA</div>
+        <div class="h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/50">DOMYNO ARENA</div>
+        <div class="h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/50">CLEAN BRAND</div>
+        <div class="h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/50">ENERGY DRINK</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section id="join" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <div class="rounded-2xl border border-white/10 bg-arena/40 p-6 md:p-10">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="font-display text-3xl md:text-4xl tracking-wide">Přihláška do WCC</h3>
+          <p class="mt-3 text-white/80">Myslíš, že máš na to soutěžit na světové scéně? Přidej se do další sezóny a reprezentuj svůj tým v nejčistším sportu na planetě.</p>
+          <ul class="mt-4 text-white/70 list-disc list-inside space-y-1">
+            <li>Viditelnost na sociálních sítích (IG/TT/YT)</li>
+            <li>Oficiální profil atleta + statistiky</li>
+            <li>Profesionální záznamy a produkce</li>
+          </ul>
+          <p class="mt-4 text-xs text-white/60">PG-13: obsah bez erotiky; sportovní estetika.</p>
+        </div>
+        <div>
+          <!-- TODO: nahraď vlastním formulářem (Typeform / Google Form) -->
+          <a href="https://forms.gle/" target="_blank" rel="noopener" class="block text-center px-6 py-4 rounded-2xl bg-primary hover:bg-primary/90 shadow-glow font-semibold">Otevřít přihlášku</a>
+          <p class="mt-3 text-xs text-white/60">Kliknutím přejdeš na externí přihlašovací formulář.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section id="rules" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <h3 class="font-display text-3xl md:text-4xl tracking-wide">Oficiální pravidla</h3>
+    <div class="mt-6 grid lg:grid-cols-3 gap-6">
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-6">
+        <h4 class="font-semibold">§1 Index čistoty</h4>
+        <p class="mt-2 text-white/70 text-sm">Bodování probíhá na základě <em>Cleanliness Index</em> (0–100). Hodnotí se vizuální čistota, zbytky vody/pěny a finální lesk povrchu.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-6">
+        <h4 class="font-semibold">§2 Jednotné vybavení</h4>
+        <p class="mt-2 text-white/70 text-sm">Všichni atleti používají identické vybavení (houbička, prostředek, ručník, vysavač). Přechody vybavení jsou součástí času.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-6">
+        <h4 class="font-semibold">§3 Penalizace</h4>
+        <p class="mt-2 text-white/70 text-sm">Za vynechané zóny, rozlití vody mimo zónu nebo vynechané kroky se přičítá penalizace +2 až +10 s dle závažnosti.</p>
+      </article>
+    </div>
+    <!-- TODO: odkaz na plné PDF pravidel -->
+    <a href="#" class="mt-6 inline-flex items-center gap-2 text-primary hover:underline">Stáhnout plná pravidla (PDF)
+      <svg width="18" height="18" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12l5-5 5 5"/></svg>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 border-t border-white/10 bg-graphite">
+    <div class="mx-auto max-w-7xl px-4 py-10 grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="font-display text-2xl">WCC</div>
+        <div class="text-xs uppercase tracking-widest text-white/60">World Chore Championships</div>
+        <p class="mt-3 text-white/60 text-sm max-w-sm">© 2025 World Chore Championships. Všechna práva vyhrazena.</p>
+        <p class="mt-2 text-[11px] text-white/40 max-w-sm">
+          WCC je parodický sportovně-zábavní formát, není afiliován s žádnou existující organizací se shodnou zkratkou.
+        </p>
+      </div>
+      <div>
+        <h5 class="font-semibold">Rychlé odkazy</h5>
+        <ul class="mt-3 space-y-2 text-white/70 text-sm">
+          <li><a href="#media" class="hover:text-primary">Média</a></li>
+          <li><a href="#sponsors" class="hover:text-primary">Partneři</a></li>
+          <li><a href="#join" class="hover:text-primary">Přihláška</a></li>
+          <li><a href="#rules" class="hover:text-primary">Pravidla</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold">Právní</h5>
+        <ul class="mt-3 space-y-2 text-white/70 text-sm">
+          <li><a href="#" class="hover:text-primary">Zásady ochrany osobních údajů</a></li>
+          <li><a href="#" class="hover:text-primary">Podmínky užití</a></li>
+          <li><a href="#" class="hover:text-primary">Press Kit</a></li>
+          <li><a href="#" class="hover:text-primary">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Minimal JS -->
+  <script>
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
