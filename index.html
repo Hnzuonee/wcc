@@ -15,7 +15,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700&family=Teko:wght@700&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -26,20 +26,22 @@
           colors: {
             graphite: '#0E0E0E',
             arena: '#1A1A1A',
-            primary: '#E41C1C', /* Naše červená */
-            secondary: '#C93EFF', /* Naše fialová/magenta */
-            accent: '#FF5E3A', 
+            primary: '#E41C1C',
+            secondary: '#C93EFF',
+            accent: '#00C6FF', /* NOVÁ NEON MODRÁ */
             metal: '#C0C0C0'
           },
           fontFamily: {
-            display: ['Bebas Neue', 'ui-sans-serif', 'system-ui'],
+            /* OPRAVENÉ FONTY */
+            display: ['Teko', 'ui-sans-serif', 'system-ui'], /* Místo Bebas Neue */
             subheading: ['Orbitron', 'ui-sans-serif', 'system-ui'],
-            sans: ['Roboto', 'ui-sans-serif', 'system-ui'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'], /* Místo Roboto */
           },
           boxShadow: {
             /* VYLEPŠENÁ NEONOVÁ ZÁŘE */
             glow: '0 0 30px theme(colors.primary / 0.7), 0 0 15px theme(colors.secondary / 0.5)',
             'glow-secondary': '0 0 30px theme(colors.secondary / 0.7), 0 0 15px theme(colors.primary / 0.5)',
+            'glow-accent': '0 0 30px theme(colors.accent / 0.7)',
           },
           backgroundImage: {
             'hero-grid': 'radial-gradient(circle at 20% 20%, rgba(228,28,28,0.2) 0, transparent 35%), radial-gradient(circle at 80% 0%, rgba(201,62,255,0.15) 0, transparent 40%), linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 60%)',
@@ -52,40 +54,41 @@
   </script>
   <style>
     html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    /* Přidání stylu pro náš gradientní text */
     .text-gradient {
       background: linear-gradient(90deg, theme(colors.primary), theme(colors.secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
-      /* PŘIDÁN NEONOVÝ TEXT-SHADOW */
-      text-shadow: 0 0 10px theme(colors.secondary / 0.5), 0 0 10px theme(colors.primary / 0.5);
+      /* SILNĚJŠÍ NEONOVÝ TEXT-SHADOW */
+      text-shadow: 0 0 15px theme(colors.primary / 0.5), 0 0 15px theme(colors.secondary / 0.5);
     }
-    /* Zvýraznění aktivní statiky */
     .stat-highlight {
         color: theme(colors.primary);
         text-shadow: 0 0 10px theme(colors.primary / 0.8);
     }
-    /* Neonový glow pro navigační linky */
+    /* Neonový glow pro navigační linky (NOVÁ MODRÁ BARVA) */
     .nav-link:hover {
-        color: theme(colors.secondary);
-        text-shadow: 0 0 10px theme(colors.secondary / 0.8);
+        color: theme(colors.accent);
+        text-shadow: 0 0 10px theme(colors.accent / 0.8);
     }
   </style>
 </head>
-<body class="bg-graphite text-white font-sans">
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-graphite/80 backdrop-blur">
+<body class="bg-graphite text-white font-sans"> <header class="sticky top-0 z-50 border-b border-white/10 bg-graphite/80 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3 group">
         <img src="img/wwc-logo.png" alt="WWC Logo" class="h-10 w-10">
         <div>
-          <div class="font-display text-2xl leading-none tracking-wide">WWC</div>
-          <div class="text-xs uppercase tracking-widest text-white/60 font-subheading">World Working Championship</div>
+          <div class="font-display text-3xl leading-none tracking-wide">WWC</div> <div class="text-xs uppercase tracking-widest text-white/60 font-subheading">World Working Championship</div>
         </div>
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm font-subheading">
-        <a href="#disciplines" class="nav-link transition">Disciplíny</a> <a href="#leaderboard" class="nav-link transition">Žebříček</a> <a href="#athletes" class="nav-link transition">Atleti</a> <a href="#partners" class="nav-link transition">Partneři</a> <a href="#contact" class="nav-link transition">Kontakt</a> </nav>
+        <a href="#disciplines" class="nav-link transition">Disciplíny</a>
+        <a href="#leaderboard" class="nav-link transition">Žebříček</a>
+        <a href="#athletes" class="nav-link transition">Atleti</a>
+        <a href="#partners" class="nav-link transition">Partneři</a>
+        <a href="#contact" class="nav-link transition">Kontakt</a>
+      </nav>
       <a href="#highlights" class="hidden md:inline-flex px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 transition shadow-glow text-sm font-semibold">Zobrazit Highlighty</a>
       <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover:bg-white/5" aria-label="Menu">
         <svg width="24" height="24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -107,13 +110,11 @@
     <div class="absolute inset-0 opacity-40" style="background: radial-gradient(circle at 70% 30%, rgba(228,28,28,0.4), transparent 45%);"></div>
     <div class="relative mx-auto max-w-7xl px-4 py-20 md:py-28">
       <p class="uppercase tracking-[0.25em] text-white/70 text-xs md:text-sm font-subheading">World Working Championship</p>
-      <h1 class="mt-2 font-display text-5xl md:text-7xl tracking-wide text-gradient">Where others work — we compete.</h1>
-      <h2 class="mt-1 text-xl md:text-2xl text-white/80 font-subheading">„Kde ostatní pracují, my soutěžíme.“</h2>
+      <h1 class="mt-2 font-display text-6xl md:text-8xl tracking-wide text-gradient">Where others work — we compete.</h1> <h2 class="mt-1 text-xl md:text-2xl text-white/80 font-subheading">„Kde ostatní pracují, my soutěžíme.“</h2>
       <p class="mt-6 max-w-2xl text-white/80">WWC je globální sportovně-zábavní liga, která povyšuje běžnou lidskou práci na úroveň sportovní soutěže. Formát profesionální ligy s nadhledem a satirou.</p>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href="#highlights" class="px-5 py-3 rounded-xl bg-primary hover:bg-primary/90 shadow-glow font-semibold">Zobrazit Highlighty</a>
+        <a href="#highlights" class="px-5 py-3 rounded-xl bg-brand-gradient hover:opacity-90 transition-opacity shadow-glow font-semibold">Zobrazit Highlighty</a>
         <a href="#athletes" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10">Seznámit se s atlety</a>
-        <a href="#partners" class="px-5 py-3 rounded-xl bg-white/0 hover:bg-white/10 border border-white/20">Staňte se partnerem</a>
       </div>
     </div>
     <div class="h-px w-full bg-divider"></div>
@@ -122,15 +123,14 @@
   <section id="about" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
     <div class="grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <h3 class="font-display text-3xl md:text-4xl tracking-wide text-gradient">Standardizujeme svět lidské práce.</h3>
+        <h3 class="font-display text-5xl md:text-6xl tracking-wide text-gradient">Standardizujeme svět lidské práce.</h3>
         <p class="mt-4 text-white/80 leading-relaxed">
           <strong>World Working Championship</strong> je oficiální organizace, která povyšuje běžnou lidskou práci na sport.
           Pod přísnými pravidly WWC závodí atleti v disciplínách jako <em>Plastic Bag Endurance</em> nebo <em>Hammer Precision</em>.
           Cíl je jednoduchý: <span class="text-white">nejrychlejší, nejpřesnější a nejvytrvalejší výkon</span>.
         </p>
         <p class="mt-4 text-lg text-white/90 font-subheading">„Protože i mytí nádobí může být sport.“</p>
-        <a href="#contact" class="mt-6 inline-flex items-center gap-2 text-primary hover:underline font-subheading">
-          Zapojte se
+        <a href="#contact" class="mt-6 inline-flex items-center gap-2 text-accent hover:underline font-subheading"> Zapojte se
           <svg width="18" height="18" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12l5-5 5 5"/></svg>
         </a>
       </div>
@@ -142,7 +142,7 @@
   </section>
 
   <section id="disciplines" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
-    <h3 class="font-display text-3xl md:text-4xl tracking-wide text-gradient">Oficiální disciplíny</h3>
+    <h3 class="font-display text-5xl md:text-6xl tracking-wide text-gradient">Oficiální disciplíny</h3>
     <p class="mt-3 text-white/70">Sezóna 2025 – Praha.</p>
     <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <article class="rounded-2xl border border-white/10 bg-arena/40 p-5 transition-all hover:border-primary hover:shadow-glow">
@@ -170,7 +170,7 @@
   </section>
 
   <section id="leaderboard" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
-    <h3 class="font-display text-3xl md:text-4xl tracking-wide text-gradient">WWC Leaderboard</h3>
+    <h3 class="font-display text-5xl md:text-6xl tracking-wide text-gradient">WWC Leaderboard</h3>
     <div class="mt-6 overflow-x-auto rounded-2xl border border-white/10 bg-arena/40 shadow-xl">
       <table class="min-w-full divide-y divide-white/10">
         <thead class="bg-white/5">
@@ -184,21 +184,21 @@
         </thead>
         <tbody class="divide-y divide-white/10">
           <tr class="hover:bg-white/5 transition-colors">
-            <td class="px-4 py-3 font-subheading text-primary">1</td>
+            <td class="px-4 py-3 font-subheading text-primary text-lg">1</td>
             <td class="px-4 py-3 font-semibold text-white">Terka "Zrzka" Osladilová</td>
             <td class="px-4 py-3">CZE</td>
             <td class="px-4 py-3 font-subheading">95</td>
             <td class="px-4 py-3">Hammer Precision</td>
           </tr>
           <tr class="hover:bg-white/5 transition-colors">
-            <td class="px-4 py-3 font-subheading text-primary">2</td>
+            <td class="px-4 py-3 font-subheading text-primary text-lg">2</td>
             <td class="px-4 py-3 font-semibold text-white">Kiki "Little Demon" Cengerová</td>
             <td class="px-4 py-3">SVK</td>
             <td class="px-4 py-3 font-subheading">91</td>
             <td class="px-4 py-3">Floor Sprint</td>
           </tr>
           <tr class="hover:bg-white/5 transition-colors">
-            <td class="px-4 py-3 font-subheading text-primary">3</td>
+            <td class="px-4 py-3 font-subheading text-primary text-lg">3</td>
             <td class="px-4 py-3 font-semibold text-white">Denisa "Modelka" Chaloupová</td>
             <td class="px-4 py-3">CZE</td>
             <td class="px-4 py-3 font-subheading">88</td>
@@ -210,7 +210,7 @@
   </section>
 
   <section id="athletes" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
-    <h3 class="font-display text-3xl md:text-4xl tracking-wide text-gradient">Hvězdy ligy</h3>
+    <h3 class="font-display text-5xl md:text-6xl tracking-wide text-gradient">Hvězdy ligy</h3>
     <div class="mt-8 grid sm:grid-cols-1 md:grid-cols-3 gap-6">
       <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden transition-all hover:border-secondary hover:shadow-glow-secondary">
         <div class="aspect-[4/5] bg-center bg-cover" style="background-image: url('img/athlete-02.jpg');"></div>
@@ -252,7 +252,7 @@
   </section>
 
   <section id="highlights" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
-    <h3 class="font-display text-3xl md:text-4xl tracking-wide text-gradient">Média & Highlighty</h3>
+    <h3 class="font-display text-5xl md:text-6xl tracking-wide text-gradient">Média & Highlighty</h3>
     <p class="mt-2 text-white/70">Oficiální záznamy, sestřihy a behind-the-scenes.</p>
     <div class="mt-8 grid lg:grid-cols-3 gap-6">
       <div class="rounded-2xl border border-white/10 bg-arena/40 p-3">
@@ -283,10 +283,10 @@
     <div class="rounded-2xl border border-white/10 bg-arena/40 p-6 shadow-xl">
       <div class="flex items-center justify-between flex-wrap gap-6">
         <div>
-          <h3 class="font-display text-3xl md:text-4xl tracking-wide text-gradient">Partneři projektu</h3>
+          <h3 class="font-display text-5xl md:text-6xl tracking-wide text-gradient">Partneři projektu</h3>
           <p class="mt-2 text-white/70 max-w-xl">Oficiální partneři podporující ligu WWC.</p>
         </div>
-        <a href="mailto:sponsors@wwc.com" class="px-5 py-3 rounded-xl bg-primary hover:bg-primary/90 shadow-glow font-semibold">Stát se partnerem</a>
+        <a href="mailto:sponsors@wwc.com" class="px-5 py-3 rounded-xl bg-brand-gradient hover:opacity-90 transition-opacity shadow-glow font-semibold">Stát se partnerem</a>
       </div>
       <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
         <div class="h-20 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-4 transition-all hover:bg-white/10 hover:border-secondary">
@@ -309,19 +309,19 @@
     <div class="rounded-2xl border border-white/10 bg-arena/40 p-6 md:p-10 shadow-xl">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h3 class="font-display text-3xl md:text-4xl tracking-wide text-gradient">Zapojte se</h3>
+          <h3 class="font-display text-5xl md:text-6xl tracking-wide text-gradient">Zapojte se</h3>
           <p class="mt-3 text-white/80">WWC je otevřená platforma. Hledáme nové talenty, partnery a mediální spolupráce.</p>
         </div>
         <div class="grid sm:grid-cols-2 gap-4 font-subheading">
             <a href="mailto:media@wwc.com" class="block text-center px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 font-semibold">Média & Tisk</a>
-            <a href="mailto:casting@wwc.com" class="block text-center px-6 py-4 rounded-xl bg-primary hover:bg-primary/90 shadow-glow font-semibold">Chci soutěžit</a>
+            <a href="mailto:casting@wwc.com" class="block text-center px-6 py-4 rounded-xl bg-brand-gradient hover:opacity-90 transition-opacity shadow-glow font-semibold">Chci soutěžit</a>
         </div>
       </div>
     </div>
   </section>
 
   <section id="rules" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
-    <h3 class="font-display text-3xl md:text-4xl tracking-wide text-gradient">Oficiální pravidla</h3>
+    <h3 class="font-display text-5xl md:text-6xl tracking-wide text-gradient">Oficiální pravidla</h3>
     <div class="mt-6 grid lg:grid-cols-3 gap-6">
       <article class="rounded-2xl border border-white/10 bg-arena/40 p-6">
         <h4 class="font-semibold font-subheading text-lg text-primary">§1 Rychlost</h4>
