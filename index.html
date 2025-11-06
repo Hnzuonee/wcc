@@ -1,260 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Working Championship (WWC)</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <title>WWC – World Working Championship | Season 2025 – Praha</title>
+  <meta name="description" content="Oficiální web WWC – World Working Championship. Kde ostatní pracují, my soutěžíme.">
+  <meta property="og:title" content="WWC – World Working Championship | Season 2025">
+  <meta property="og:description" content="Oficiální web WWC. Kde ostatní pracují, my soutěžíme.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://worldworkingchampionship.com/">
+  <meta property="og:image" content="img/wwc-logo.png"> <meta name="theme-color" content="#0E0E0E">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            graphite: '#0E0E0E',
+            arena: '#1A1A1A', /* Naše světlejší pozadí karet */
+            primary: '#E41C1C', /* Naše červená */
+            secondary: '#C93EFF', /* Naše fialová/magenta */
+            metal: '#C0C0C0'
+          },
+          fontFamily: {
+            display: ['Bebas Neue', 'Inter', 'ui-sans-serif', 'system-ui'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          },
+          boxShadow: {
+            /* Upraveno pro naše barvy */
+            glow: '0 0 40px rgba(228,28,28,0.5), 0 0 40px rgba(201,62,255,0.3)',
+          },
+          backgroundImage: {
+            /* Upraveno pro naše barvy */
+            'hero-grid': 'radial-gradient(circle at 20% 20%, rgba(228,28,28,0.2) 0, transparent 35%), radial-gradient(circle at 80% 0%, rgba(201,62,255,0.15) 0, transparent 40%), linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 60%)',
+            'divider': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    /* Přidání stylu pro náš gradientní text */
+    .text-gradient {
+      background: linear-gradient(90deg, var(--tw-colors-primary), var(--tw-colors-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
 </head>
-<body>
-
-    <header class="main-header">
-        <nav class="navbar">
-            <div class="navbar-logo">
-                <img src="img/wwc-logo.png" alt="WWC Logo" class="logo-small">
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#disciplines">Disciplíny</a></li>
-                <li><a href="#leaderboard">Žebříček</a></li> <li><a href="#athletes">Atleti</a></li>
-                <li><a href="#partners">Partneři</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-
-        <section id="hero">
-            <img src="img/wwc-logo.png" alt="World Working Championship Logo" class="hero-logo">
-            <h1 class="tagline">Where others work — we compete.</h1>
-            <p class="tagline-cs">„Kde ostatní pracují, my soutěžíme.“</p>
-            <div class="cta-socials">
-                <a href="#" class="cta-button">Sledujte živě na YouTube</a>
-                <a href="#" class="social-link">TikTok</a>
-                <a href="#" class="social-link">Instagram</a>
-            </div>
-        </section>
-
-        <section id="about" class="content-section">
-            <h2 class="section-title">Standardizujeme svět lidské práce.</h2>
-            <p>
-                WWC je globální sportovně-zábavní liga, která povyšuje běžnou lidskou práci na úroveň sportovní soutěže. Soutěžící závodí v humorných, ale realisticky pojatých disciplínách ve formátu profesionální sportovní ligy.
-            </p>
-            <p class="mission">
-                „Protože i mytí nádobí může být sport.“
-            </p>
-        </section>
-
-        <section id="disciplines" class="content-section">
-            <h2 class="section-title">Oficiální disciplíny</h2>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <h3>Dish Dash</h3>
-                    <p>Mytí nádobí na čas a čistotu.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>Plastic Bag Endurance</h3>
-                    <p>Nošení plných igelitek na vzdálenost.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>Hammer Precision</h3>
-                    <p>Zatloukání hřebíků na čas a přesnost.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>Floor Sprint</h3>
-                    <p>Vytírání / vysávání definované zóny.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="leaderboard" class="content-section">
-            <h2 class="section-title">WWC Leaderboard 2025</h2>
-            <div class="table-container">
-                <table class="leaderboard-table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Atletka</th>
-                            <th>Země</th>
-                            <th>Body</th>
-                            <th>Nejlepší disciplína</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Terka "Zrzka" Osladilová</td>
-                            <td>CZE</td>
-                            <td>95</td>
-                            <td>Hammer Precision</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Kiki "Little Demon" Cengerová</td>
-                            <td>SVK</td>
-                            <td>91</td>
-                            <td>Floor Sprint</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Denisa "Modelka" Chaloupová</td>
-                            <td>CZE</td>
-                            <td>88</td>
-                            <td>Plastic Bag Endurance</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="table-note">*Oficiální žebříček po Prague Season 2025.</p>
-        </section>
-
-
-        <section id="athletes" class="content-section">
-            <h2 class="section-title">Hvězdy ligy</h2>
-            <p>Seznamte se s předními atlety World Working Championship.</p>
-            <div class="athletes-grid">
-                
-                <div class="athlete-card">
-                    <div class="athlete-header">
-                        <div class="athlete-photo-container">
-                            <img src="img/athlete-02.jpg" alt="Terka Osladilová" class="athlete-photo">
-                        </div>
-                        <div class="athlete-info">
-                            <h3>Terka "Zrzka" Osladilová</h3>
-                            <span class="athlete-country">CZE</span>
-                            <p>Legendární powerwoman v Hammer Precision. Terky soustředěnost a síla jí vynesly mnoho titulů.</p>
-                        </div>
-                    </div>
-                    <div class="athlete-stats">
-                        <div class="stat-item">
-                            <span class="stat-label">Síla</span>
-                            <div class="stat-bar"><div class="stat-bar-inner" style="width: 98%;"></div></div>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Přesnost</span>
-                            <div class="stat-bar"><div class="stat-bar-inner" style="width: 92%;"></div></div>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Výdrž</span>
-                            <div class="stat-bar"><div class="stat-bar-inner" style="width: 80%;"></div></div>
-                        </div>
-                    </div>
-                    <a href="#" class="profile-link">Zobrazit profil</a>
-                </div>
-                
-                <div class="athlete-card">
-                    <div class="athlete-header">
-                        <div class="athlete-photo-container">
-                            <img src="img/athlete-01.jpg" alt="Kiki Cengerová" class="athlete-photo">
-                        </div>
-                        <div class="athlete-info">
-                            <h3>Kiki "Little Demon" Cengerová</h3>
-                            <span class="athlete-country">SVK</span>
-                            <p>Mistryně v Dish Dash a Floor Sprint. Kira je známá svou precizností a bleskovou rychlostí.</p>
-                        </div>
-                    </div>
-                    <div class="athlete-stats">
-                        <div class="stat-item">
-                            <span class="stat-label">Síla</span>
-                            <div class="stat-bar"><div class="stat-bar-inner" style="width: 75%;"></div></div>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Přesnost</span>
-                            <div class="stat-bar"><div class="stat-bar-inner" style="width: 95%;"></div></div>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Výdrž</span>
-                            <div class="stat-bar"><div class="stat-bar-inner" style="width: 88%;"></div></div>
-                        </div>
-                    </div>
-                    <a href="#" class="profile-link">Zobrazit profil</a>
-                </div>
-                
-                <div class="athlete-card">
-                    <div class="athlete-header">
-                        <div class="athlete-photo-container">
-                            <img src="img/athlete-03.jpg" alt="Denisa Chaloupová" class="athlete-photo">
-                        </div>
-                        <div class="athlete-info">
-                            <h3>Denisa "Modelka" Chaloupová</h3>
-                            <span class="athlete-country">CZE</span>
-                            <p>Královna Plastic Bag Endurance. Denisa je známá svou výjimečnou vytrvalostí.</p>
-                        </div>
-                    </div>
-                    <div class="athlete-stats">
-                        <div class="stat-item">
-                            <span class="stat-label">Síla</span>
-                            <div class="stat-bar"><div class="stat-bar-inner" style="width: 85%;"></div></div>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Přesnost</span>
-                            <div class="stat-bar"><div class="stat-bar-inner" style="width: 70%;"></div></div>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Výdrž</span>
-                            <div class="stat-bar"><div class="stat-bar-inner" style="width: 99%;"></div></div>
-                        </div>
-                    </div>
-                    <a href="#" class="profile-link">Zobrazit profil</a>
-                </div>
-
-            </div>
-        </section>
-        
-        <section id="highlights" class="content-section">
-            <h2 class="section-title">Highlights: Prague Season 2025</h2>
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <span>YouTube Video Embed (16:9)</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="partners" class="content-section">
-            <h2 class="section-title">Partneři projektu</h2>
-            <div class="partners-grid">
-                <div class="partner-item">
-                    <img src="img/partner-01.png" alt="Partner Logo 1">
-                </div>
-                <div class="partner-item">
-                    <img src="img/partner-02.png" alt="Partner Logo 2">
-                </div>
-                <div class="partner-item">
-                    <img src="img/partner-03.png" alt="Partner Logo 3">
-                </div>
-                <div class="partner-item">
-                    <img src="img/partner-04.png" alt="Partner Logo 4">
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="content-section">
-            <h2 class="section-title">Zapojte se</h2>
-            <p>WWC je otevřená platforma. Hledáme nové talenty, partnery a mediální spolupráce.</p>
-            <div class="contact-links">
-                <a href="mailto:media@wwc.com" class="contact-button">Média & Tisk</a>
-                <a href="mailto:sponsors@wwc.com" class="contact-button">Sponzoři</a>
-                <a href="mailto:casting@wwc.com" class="contact-button">Chci soutěžit</a>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="main-footer">
-        <p>&copy; <span id="year"></span> World Working Championship. Všechna práva vyhrazena.</p>
-        <div class="footer-socials">
-            <a href="#">YouTube</a> | <a href="#">Instagram</a> | <a href="#">TikTok</a> | <a href="#">X (Twitter)</a>
+<body class="bg-graphite text-white font-sans">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-graphite/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="img/wwc-logo.png" alt="WWC Logo" class="h-10 w-10">
+        <div>
+          <div class="font-display text-2xl leading-none tracking-wide">WWC</div>
+          <div class="text-xs uppercase tracking-widest text-white/60">World Working Championship</div>
         </div>
-    </footer>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#disciplines" class="hover:text-primary transition">Disciplíny</a>
+        <a href="#leaderboard" class="hover:text-primary transition">Žebříček</a>
+        <a href="#athletes" class="hover:text-primary transition">Atleti</a>
+        <a href="#partners" class="hover:text-primary transition">Partneři</a>
+        <a href="#contact" class="hover:text-primary transition">Kontakt</a>
+      </nav>
+      <a href="#highlights" class="hidden md:inline-flex px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 transition shadow-glow text-sm font-semibold">Zobrazit Highlighty</a>
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover:bg-white/5" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
+      <nav class="px-4 py-3 grid gap-2 text-sm">
+        <a href="#disciplines" class="py-2 hover:text-primary">Disciplíny</a>
+        <a href="#leaderboard" class="py-2 hover:text-primary">Žebříček</a>
+        <a href="#athletes" class="py-2 hover:text-primary">Atleti</a>
+        <a href="#partners" class="py-2 hover:text-primary">Partneři</a>
+        <a href="#contact" class="py-2 hover:text-primary">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-hero-grid"></div>
+    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 70% 30%, rgba(228,28,28,0.4), transparent 45%);"></div>
+    <div class="relative mx-auto max-w-7xl px-4 py-20 md:py-28">
+      <p class="uppercase tracking-[0.25em] text-white/70 text-xs md:text-sm">World Working Championship</p>
+      <h1 class="mt-2 font-display text-5xl md:text-7xl tracking-wide">Where others work — we compete.</h1>
+      <h2 class="mt-1 text-xl md:text-2xl text-white/80">„Kde ostatní pracují, my soutěžíme.“</h2>
+      <p class="mt-6 max-w-2xl text-white/80">WWC je globální sportovně-zábavní liga, která povyšuje běžnou lidskou práci na úroveň sportovní soutěže. Formát profesionální ligy s nadhledem a satirou.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#highlights" class="px-5 py-3 rounded-xl bg-primary hover:bg-primary/90 shadow-glow font-semibold">Zobrazit Highlighty</a>
+        <a href="#athletes" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10">Seznámit se s atlety</a>
+        <a href="#partners" class="px-5 py-3 rounded-xl bg-white/0 hover:bg-white/10 border border-white/20">Staňte se partnerem</a>
+      </div>
+    </div>
+    <div class="h-px w-full bg-divider"></div>
+  </section>
 
-</body>
-</html>
+  <section id="about" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h3 class="font-display text-3xl md:text-4xl tracking-wide">Standardizujeme svět lidské práce.</h3>
+        <p class="mt-4 text-white/80 leading-relaxed">
+          <strong>World Working Championship</strong> je oficiální organizace, která povyšuje běžnou lidskou práci na sport.
+          Pod přísnými pravidly WWC závodí atleti v disciplínách jako <em>Plastic Bag Endurance</em> nebo <em>Hammer Precision</em>.
+          Cíl je jednoduchý: <span class="text-white">nejrychlejší, nejpřesnější a nejvytrvalejší výkon</span>.
+        </p>
+        <p class="mt-4 text-lg text-white/90">„Protože i mytí nádobí může být sport.“</p>
+        <a href="#contact" class="mt-6 inline-flex items-center gap-2 text-primary hover:underline">
+          Zapojte se
+          <svg width="18" height="18" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12l5-5 5 5"/></svg>
+        </a>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-arena/40 p-6">
+        <div class="aspect-video rounded-xl bg-[url('https://images.unsplash.com/photo-1554124104-06d5ba87896c?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <p class="mt-3 text-xs text-white/60">Ilustrační vizuál.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="disciplines" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <h3 class="font-display text-3xl md:text-4xl tracking-wide">Oficiální disciplíny</h3>
+    <p class="mt-3 text-white/70">Sezóna 2025 – Praha.</p>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-5">
+        <div class="aspect-video rounded-xl bg-[url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <h4 class="mt-4 font-semibold">Dish Dash</h4>
+        <p class="text-sm text-white/70">Mytí nádobí na čas a čistotu.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-5">
+        <div class="aspect-video rounded-xl bg-[url('https://images.unsplash.com/photo-1594700720436-d75510613e7d?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <h4 class="mt-4 font-semibold">Plastic Bag Endurance</h4>
+        <p class="text-sm text-white/70">Nošení plných igelitek na vzdálenost.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-5">
+        <div class="aspect-video rounded-xl bg-[url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <h4 class="mt-4 font-semibold">Hammer Precision</h4>
+        <p class="text-sm text-white/70">Zatloukání hřebíků na čas a přesnost.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-arena/40 p-5">
+        <div class="aspect-video rounded-xl bg-[url('https://images.unsplash.com/photo-1516280030429-27679b3dc9cf?q=80&w=1200&auto=format&fit=crop')] bg-center bg-cover"></div>
+        <h4 class="mt-4 font-semibold">Floor Sprint</h4>
+        <p class="text-sm text-white/70">Vytírání / vysávání definované zóny na rychlost.</p>
+      </article>
+    </div>
+    <div class="mt-8 h-px w-full bg-divider"></div>
+  </section>
+
+  <section id="leaderboard" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
