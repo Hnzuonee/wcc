@@ -28,24 +28,22 @@
             arena: '#1A1A1A',
             primary: '#E41C1C', /* Naše červená */
             secondary: '#C93EFF', /* Naše fialová/magenta */
-            accent: '#FF5E3A', /* Náš oranžovo-červený gradient start */
+            accent: '#FF5E3A', 
             metal: '#C0C0C0'
           },
           fontFamily: {
-            /* Naše fonty */
             display: ['Bebas Neue', 'ui-sans-serif', 'system-ui'],
             subheading: ['Orbitron', 'ui-sans-serif', 'system-ui'],
             sans: ['Roboto', 'ui-sans-serif', 'system-ui'],
           },
           boxShadow: {
-            /* NAŠE NEONOVÁ ZÁŘE (Červená + Fialová) */
-            glow: '0 0 25px rgba(228, 28, 28, 0.6), 0 0 15px rgba(201, 62, 255, 0.4)',
+            /* VYLEPŠENÁ NEONOVÁ ZÁŘE */
+            glow: '0 0 30px theme(colors.primary / 0.7), 0 0 15px theme(colors.secondary / 0.5)',
+            'glow-secondary': '0 0 30px theme(colors.secondary / 0.7), 0 0 15px theme(colors.primary / 0.5)',
           },
           backgroundImage: {
-            /* NAŠE POZADÍ S NAŠIMI BARVAMI */
             'hero-grid': 'radial-gradient(circle at 20% 20%, rgba(228,28,28,0.2) 0, transparent 35%), radial-gradient(circle at 80% 0%, rgba(201,62,255,0.15) 0, transparent 40%), linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 60%)',
             'divider': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)',
-            /* NÁŠ GRADIENT */
             'brand-gradient': 'linear-gradient(90deg, theme(colors.primary), theme(colors.secondary))',
           }
         }
@@ -61,35 +59,41 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
+      /* PŘIDÁN NEONOVÝ TEXT-SHADOW */
+      text-shadow: 0 0 10px theme(colors.secondary / 0.5), 0 0 10px theme(colors.primary / 0.5);
     }
     /* Zvýraznění aktivní statiky */
     .stat-highlight {
         color: theme(colors.primary);
-        text-shadow: 0 0 10px theme(colors.primary);
+        text-shadow: 0 0 10px theme(colors.primary / 0.8);
+    }
+    /* Neonový glow pro navigační linky */
+    .nav-link:hover {
+        color: theme(colors.secondary);
+        text-shadow: 0 0 10px theme(colors.secondary / 0.8);
     }
   </style>
 </head>
-<body class="bg-graphite text-white font-sans"> <header class="sticky top-0 z-50 border-b border-white/10 bg-graphite/80 backdrop-blur">
+<body class="bg-graphite text-white font-sans">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-graphite/80 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3 group">
         <img src="img/wwc-logo.png" alt="WWC Logo" class="h-10 w-10">
         <div>
           <div class="font-display text-2xl leading-none tracking-wide">WWC</div>
-          <div class="text-xs uppercase tracking-widest text-white/60 font-subheading">World Working Championship</div> </div>
+          <div class="text-xs uppercase tracking-widest text-white/60 font-subheading">World Working Championship</div>
+        </div>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-subheading"> <a href="#disciplines" class="hover:text-primary transition">Disciplíny</a>
-        <a href="#leaderboard" class="hover:text-primary transition">Žebříček</a>
-        <a href="#athletes" class="hover:text-primary transition">Atleti</a>
-        <a href="#partners" class="hover:text-primary transition">Partneři</a>
-        <a href="#contact" class="hover:text-primary transition">Kontakt</a>
-      </nav>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-subheading">
+        <a href="#disciplines" class="nav-link transition">Disciplíny</a> <a href="#leaderboard" class="nav-link transition">Žebříček</a> <a href="#athletes" class="nav-link transition">Atleti</a> <a href="#partners" class="nav-link transition">Partneři</a> <a href="#contact" class="nav-link transition">Kontakt</a> </nav>
       <a href="#highlights" class="hidden md:inline-flex px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 transition shadow-glow text-sm font-semibold">Zobrazit Highlighty</a>
       <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover:bg-white/5" aria-label="Menu">
         <svg width="24" height="24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
     <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
-      <nav class="px-4 py-3 grid gap-2 text-sm font-subheading"> <a href="#disciplines" class="py-2 hover:text-primary">Disciplíny</a>
+      <nav class="px-4 py-3 grid gap-2 text-sm font-subheading">
+        <a href="#disciplines" class="py-2 hover:text-primary">Disciplíny</a>
         <a href="#leaderboard" class="py-2 hover:text-primary">Žebříček</a>
         <a href="#athletes" class="py-2 hover:text-primary">Atleti</a>
         <a href="#partners" class="py-2 hover:text-primary">Partneři</a>
@@ -208,7 +212,7 @@
   <section id="athletes" class="mx-auto max-w-7xl px-4 py-16 md:py-20">
     <h3 class="font-display text-3xl md:text-4xl tracking-wide text-gradient">Hvězdy ligy</h3>
     <div class="mt-8 grid sm:grid-cols-1 md:grid-cols-3 gap-6">
-      <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden transition-all hover:border-secondary hover:shadow-glow">
+      <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden transition-all hover:border-secondary hover:shadow-glow-secondary">
         <div class="aspect-[4/5] bg-center bg-cover" style="background-image: url('img/athlete-02.jpg');"></div>
         <div class="p-5">
           <h4 class="font-semibold font-subheading text-lg">Terka "Zrzka" Osladilová</h4>
@@ -220,7 +224,7 @@
           </div>
         </div>
       </article>
-      <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden transition-all hover:border-secondary hover:shadow-glow">
+      <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden transition-all hover:border-secondary hover:shadow-glow-secondary">
         <div class="aspect-[4/5] bg-center bg-cover" style="background-image: url('img/athlete-01.jpg');"></div>
         <div class="p-5">
           <h4 class="font-semibold font-subheading text-lg">Kiki "Little Demon" Cengerová</h4>
@@ -232,7 +236,7 @@
           </div>
         </div>
       </article>
-      <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden transition-all hover:border-secondary hover:shadow-glow">
+      <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden transition-all hover:border-secondary hover:shadow-glow-secondary">
         <div class="aspect-[4/5] bg-center bg-cover" style="background-image: url('img/athlete-03.jpg');"></div>
         <div class="p-5">
           <h4 class="font-semibold font-subheading text-lg">Denisa "Modelka" Chaloupová</h4>
@@ -286,16 +290,16 @@
       </div>
       <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
         <div class="h-20 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-4 transition-all hover:bg-white/10 hover:border-secondary">
-          <img src="img/partner-01.png" alt="Partner Logo 1" class="max-h-full max-w-full object-contain brightness-0 invert opacity-50 group-hover:opacity-100 transition">
+          <img src="img/partner-01.png" alt="Partner Logo 1" class="max-h-full max-w-full object-contain brightness-0 invert opacity-50 hover:opacity-100 transition-opacity">
         </div>
         <div class="h-20 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-4 transition-all hover:bg-white/10 hover:border-secondary">
-          <img src="img/partner-02.png" alt="Partner Logo 2" class="max-h-full max-w-full object-contain brightness-0 invert opacity-50 group-hover:opacity-100 transition">
+          <img src="img/partner-02.png" alt="Partner Logo 2" class="max-h-full max-w-full object-contain brightness-0 invert opacity-50 hover:opacity-100 transition-opacity">
         </div>
         <div class="h-20 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-4 transition-all hover:bg-white/10 hover:border-secondary">
-          <img src="img/partner-03.png" alt="Partner Logo 3" class="max-h-full max-w-full object-contain brightness-0 invert opacity-50 group-hover:opacity-100 transition">
+          <img src="img/partner-03.png" alt="Partner Logo 3" class="max-h-full max-w-full object-contain brightness-0 invert opacity-50 hover:opacity-100 transition-opacity">
         </div>
         <div class="h-20 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-4 transition-all hover:bg-white/10 hover:border-secondary">
-          <img src="img/partner-04.png" alt="Partner Logo 4" class="max-h-full max-w-full object-contain brightness-0 invert opacity-50 group-hover:opacity-100 transition">
+          <img src="img/partner-04.png" alt="Partner Logo 4" class="max-h-full max-w-full object-contain brightness-0 invert opacity-50 hover:opacity-100 transition-opacity">
         </div>
       </div>
     </div>
@@ -320,15 +324,15 @@
     <h3 class="font-display text-3xl md:text-4xl tracking-wide text-gradient">Oficiální pravidla</h3>
     <div class="mt-6 grid lg:grid-cols-3 gap-6">
       <article class="rounded-2xl border border-white/10 bg-arena/40 p-6">
-        <h4 class="font-semibold font-subheading text-lg">§1 Rychlost</h4>
+        <h4 class="font-semibold font-subheading text-lg text-primary">§1 Rychlost</h4>
         <p class="mt-2 text-white/70 text-sm">Všechny disciplíny jsou primárně měřeny na čas. Nejrychlejší výkon vyhrává, pokud nejsou uděleny penalizace.</p>
       </article>
       <article class="rounded-2xl border border-white/10 bg-arena/40 p-6">
-        <h4 class="font-semibold font-subheading text-lg">§2 Přesnost</h4>
+        <h4 class="font-semibold font-subheading text-lg text-primary">§2 Přesnost</h4>
         <p class="mt-2 text-white/70 text-sm">Penalizace (vteřiny navíc) jsou udělovány za chyby, nedodržení zóny nebo nesplnění kvalitativních cílů (např. špatně zatlučený hřebík).</p>
       </article>
       <article class="rounded-2xl border border-white/10 bg-arena/40 p-6">
-        <h4 class="font-semibold font-subheading text-lg">§3 Výdrž</h4>
+        <h4 class="font-semibold font-subheading text-lg text-primary">§3 Výdrž</h4>
         <p class="mt-2 text-white/70 text-sm">Disciplíny jako Plastic Bag Endurance testují maximální výdrž atleta. Vítězí nejdelší dosažená vzdálenost nebo čas.</p>
       </article>
     </div>
