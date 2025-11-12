@@ -9,7 +9,7 @@
   <meta property="og:description" content="Kde ostatní pracují, my soutěžíme. Oficiální disciplíny, žebříčky, atleti a highlighty.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://worldworkingchampionship.com/">
-  <meta property="og:image" content="img/og-image.jpg">
+  <meta property="og:image" content="img/ui/wwc-logo.png?v=1">
   <meta name="theme-color" content="#0E0E0E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,6 +49,7 @@
     }
   </script>
   <style>
+    html{scroll-behavior:smooth}
     html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     .text-gradient { background: linear-gradient(90deg, theme(colors.primary), theme(colors.secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; text-shadow: 0 0 15px theme(colors.primary / 0.5), 0 0 15px theme(colors.secondary / 0.5); }
     .stat-highlight { color: theme(colors.primary); text-shadow: 0 0 10px theme(colors.primary / 0.8); }
@@ -61,7 +62,10 @@
   <header class="sticky top-0 z-50 border-b border-white/10 bg-graphite/80 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3 group">
-<img src="img/ui/wwc-logo.png" alt="WWC Logo" class="h-10 w-10">
+        <!-- logo: path fixed + slight bg to make it visible on dark header -->
+        <img src="img/ui/wwc-logo.png?v=1" alt="WWC Logo"
+             class="h-10 w-10 object-contain rounded-md p-1"
+             style="background:rgba(255,255,255,0.06)">
         <div>
           <div class="font-display text-3xl leading-none tracking-wide">WWC</div>
           <div class="text-xs uppercase tracking-widest text-white/60 font-subheading">World Working Championship</div>
@@ -69,23 +73,23 @@
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm font-subheading">
         <a href="#about" class="nav-link transition">O WCC</a>
+        <a href="#athletes" class="nav-link transition">Modelky</a>
         <a href="#disciplines" class="nav-link transition">Disciplíny</a>
         <a href="#leaderboard" class="nav-link transition">Žebříček</a>
-        <a href="#athletes" class="nav-link transition">Atleti</a>
         <a href="#partners" class="nav-link transition">Partneři</a>
         <a href="#contact" class="nav-link transition">Přihláška</a>
       </nav>
       <a href="#highlights" class="hidden md:inline-flex px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 transition shadow-glow text-sm font-semibold">Sledovat highlighty</a>
-      <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover:bg-white/5" aria-label="Menu">
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover-bg-white/5" aria-label="Menu">
         <svg width="24" height="24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
     <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
       <nav class="px-4 py-3 grid gap-2 text-sm font-subheading">
         <a href="#about" class="py-2 hover:text-primary">O WCC</a>
+        <a href="#athletes" class="py-2 hover:text-primary">Modelky</a>
         <a href="#disciplines" class="py-2 hover:text-primary">Disciplíny</a>
         <a href="#leaderboard" class="py-2 hover:text-primary">Žebříček</a>
-        <a href="#athletes" class="py-2 hover:text-primary">Atleti</a>
         <a href="#partners" class="py-2 hover:text-primary">Partneři</a>
         <a href="#contact" class="py-2 hover:text-primary">Přihláška</a>
       </nav>
@@ -93,10 +97,10 @@
   </header>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden">
+  <section class="relative overflow-hidden min-h-[70vh]">
     <div class="absolute inset-0 bg-hero-grid"></div>
-    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(circle at 70% 30%, rgba(228,28,28,0.4), transparent 45%);"></div>
-    <div class="relative mx-auto max-w-7xl px-4 py-20 md:py-28">
+    <div class="absolute inset-0 opacity-60" style="background: radial-gradient(circle at 70% 30%, rgba(228,28,28,0.45), transparent 45%);"></div>
+    <div class="relative mx-auto max-w-7xl px-4 py-16 md:py-20">
       <p class="uppercase tracking-[0.25em] text-white/70 text-xs md:text-sm font-subheading">World Working Championship</p>
       <h1 class="mt-2 font-display text-6xl md:text-8xl tracking-wide text-gradient">Where others work — we compete.</h1>
       <h2 class="mt-1 text-xl md:text-2xl text-white/80 font-subheading">„Kde ostatní pracují, my soutěžíme.“</h2>
@@ -104,6 +108,13 @@
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="#highlights" class="px-5 py-3 rounded-xl bg-brand-gradient hover:opacity-90 transition-opacity shadow-glow font-semibold">Sledovat highlighty</a>
         <a href="#contact" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10">Přihlásit se</a>
+        <a href="#athletes" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10">Modelky</a>
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3 text-xs md:text-sm font-subheading">
+        <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/10">Prague Season 2025</span>
+        <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/10">4 disciplíny</span>
+        <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/10">4–6 soutěžících</span>
+        <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/10">Domyno Arena</span>
       </div>
     </div>
     <div class="h-px w-full bg-divider"></div>
@@ -124,7 +135,8 @@
         </a>
       </div>
       <div class="rounded-2xl border border-white/10 bg-arena/40 p-6 shadow-xl">
-<div class="aspect-video rounded-xl bg-[url('img/ui/hero-arena.png')] bg-center bg-cover"></div>
+        <div class="aspect-video rounded-xl bg-center bg-cover"
+             style="background-image:url('img/ui/hero-arena.png?v=1')"></div>
         <p class="mt-3 text-xs text-white/60">Live from Prague — Domyno Arena.</p>
       </div>
     </div>
@@ -136,7 +148,8 @@
     <div class="mt-8 grid sm:grid-cols-1 md:grid-cols-3 gap-6">
 
       <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden transition-all hover:border-secondary hover:shadow-glow-secondary">
-        <div class="aspect-[4/5] bg-center bg-cover" style="background-image: url('img/athlete-01.png');"></div>
+        <div class="aspect-[4/5] bg-center bg-cover"
+             style="background-image:url('img/athlete-01.png'),url('ui/placeholder-4x5.png')"></div>
         <div class="p-5">
           <h4 class="font-semibold font-subheading text-lg">Terka "Zrzka" Osladilová</h4>
           <p class="text-sm text-white/70">CZE • Síla: Hammer Precision</p>
@@ -153,7 +166,8 @@
       </article>
 
       <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden transition-all hover:border-secondary hover:shadow-glow-secondary">
-        <div class="aspect-[4/5] bg-center bg-cover" style="background-image: url('img/athlete-02.png');"></div>
+        <div class="aspect-[4/5] bg-center bg-cover"
+             style="background-image:url('img/athlete-02.png'),url('ui/placeholder-4x5.png')"></div>
         <div class="p-5">
           <h4 class="font-semibold font-subheading text-lg">Kiki "Little Demon" Cengerová</h4>
           <p class="text-sm text-white/70">SVK • Síla: Floor Sprint</p>
@@ -163,14 +177,15 @@
             <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Endurance</div><div class="text-lg font-bold">88</div></div>
           </div>
           <a href="https://instagram.com/kiki_username" target="_blank" rel="nofollow noopener"
-             class="mt-4 block text-center px-5 py-3 rounded-xl bg-brand-gradient hover:opacity-90 transition-opacity shadow-glow font-semibold font-subheading text-sm">
+             class="mt-4 block text-center px-5 py-3 rounded-xl bg-brand-gradient hover:opacity-90 transition-opacity shadow-glow font-subheading font-semibold text-sm">
             Kontakt
           </a>
         </div>
       </article>
 
       <article class="rounded-2xl border border-white/10 bg-arena/40 overflow-hidden transition-all hover:border-secondary hover:shadow-glow-secondary">
-        <div class="aspect-[4/5] bg-center bg-cover" style="background-image: url('img/athlete-03.png');"></div>
+        <div class="aspect-[4/5] bg-center bg-cover"
+             style="background-image:url('img/athlete-03.png'),url('ui/placeholder-4x5.png')"></div>
         <div class="p-5">
           <h4 class="font-semibold font-subheading text-lg">Denisa "Modelka" Chaloupová</h4>
           <p class="text-sm text-white/70">CZE • Síla: Plastic Bag Endurance</p>
@@ -180,7 +195,7 @@
             <div class="rounded-lg bg-white/5 p-2"><div class="text-white/60">Endurance</div><div class="text-lg font-bold stat-highlight">99</div></div>
           </div>
           <a href="https://instagram.com/denisa_username" target="_blank" rel="nofollow noopener"
-             class="mt-4 block text-center px-5 py-3 rounded-xl bg-brand-gradient hover:opacity-90 transition-opacity shadow-glow font-semibold font-subheading text-sm">
+             class="mt-4 block text-center px-5 py-3 rounded-xl bg-brand-gradient hover:opacity-90 transition-opacity shadow-glow font-subheading font-semibold text-sm">
             Kontakt
           </a>
         </div>
@@ -195,22 +210,26 @@
     <p class="mt-3 text-white/70">Sezóna 2025 – Praha.</p>
     <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <article class="rounded-2xl border border-white/10 bg-arena/40 p-5 transition-all hover:border-primary hover:shadow-glow">
-        <div class="aspect-video rounded-xl bg-[url('disciplines/dish-dash.png')] bg-center bg-cover"></div>
+        <div class="aspect-video rounded-xl bg-center bg-cover"
+             style="background-image:url('disciplines/dish-dash.png?v=1')"></div>
         <h4 class="mt-4 font-semibold font-subheading">Dish Dash</h4>
         <p class="text-sm text-white/70">Mytí 10 kusů nádobí na čas a čistotu; penalizace za pěnu a šmouhy.</p>
       </article>
       <article class="rounded-2xl border border-white/10 bg-arena/40 p-5 transition-all hover:border-primary hover:shadow-glow">
-        <div class="aspect-video rounded-xl bg-[url('disciplines/plastic-bag-endurance.png')] bg-center bg-cover"></div>
+        <div class="aspect-video rounded-xl bg-center bg-cover"
+             style="background-image:url('disciplines/plastic-bag-endurance.png?v=1')"></div>
         <h4 class="mt-4 font-semibold font-subheading">Plastic Bag Endurance</h4>
         <p class="text-sm text-white/70">Dvě plné igelitky na 25 m; pád či roztržení = penalizace.</p>
       </article>
       <article class="rounded-2xl border border-white/10 bg-arena/40 p-5 transition-all hover:border-primary hover:shadow-glow">
-        <div class="aspect-video rounded-xl bg-[url('disciplines/hammer-precision.png')] bg-center bg-cover"></div>
+        <div class="aspect-video rounded-xl bg-center bg-cover"
+             style="background-image:url('disciplines/hammer-precision.png?v=1')"></div>
         <h4 class="mt-4 font-semibold font-subheading">Hammer Precision</h4>
         <p class="text-sm text-white/70">5 hřebíků co nejrychleji; body za přesnost úderu.</p>
       </article>
       <article class="rounded-2xl border border-white/10 bg-arena/40 p-5 transition-all hover:border-primary hover:shadow-glow">
-        <div class="aspect-video rounded-xl bg-[url('disciplines/floor-sprint.png')] bg-center bg-cover"></div>
+        <div class="aspect-video rounded-xl bg-center bg-cover"
+             style="background-image:url('disciplines/floor-sprint.png?v=1')"></div>
         <h4 class="mt-4 font-semibold font-subheading">Floor Sprint</h4>
         <p class="text-sm text-white/70">Vyčištění zóny 3×3 m; hodnotí se rychlost a zbytkový prach.</p>
       </article>
