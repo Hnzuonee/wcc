@@ -61,14 +61,18 @@
   <!-- NAV -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-graphite/80 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3 group">
-        <!-- logo: path fixed + slight bg to make it visible on dark header -->
-        <img src="img/ui/wwc-logo.png?v=1" alt="WWC Logo"
-             class="h-10 w-10 object-contain rounded-md p-1"
-             style="background:rgba(255,255,255,0.06)">
-        <div>
-          <div class="font-display text-3xl leading-none tracking-wide">WWC</div>
-          <div class="text-xs uppercase tracking-widest text-white/60 font-subheading">World Working Championship</div>
+      
+      <a href="#" class="flex items-center gap-4 group">
+        <img src="img/ui/wwc-logo.png?v=1" alt="WWC Icon" 
+             class="h-14 w-auto object-contain drop-shadow-[0_0_15px_rgba(228,28,28,0.6)] transition-transform group-hover:scale-105">
+        
+        <div class="flex flex-col justify-center">
+          <span class="font-display text-5xl font-bold leading-[0.8] tracking-wide text-gradient">
+            WWC
+          </span>
+          <span class="font-subheading text-[0.65rem] uppercase tracking-[0.25em] text-white/50 group-hover:text-white/90 transition-colors">
+            World Working Championship
+          </span>
         </div>
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm font-subheading">
@@ -79,11 +83,14 @@
         <a href="#partners" class="nav-link transition">Partneři</a>
         <a href="#contact" class="nav-link transition">Přihláška</a>
       </nav>
+
       <a href="#highlights" class="hidden md:inline-flex px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 transition shadow-glow text-sm font-semibold">Sledovat highlighty</a>
-      <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover-bg-white/5" aria-label="Menu">
+      
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover:bg-white/5" aria-label="Menu">
         <svg width="24" height="24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
+
     <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
       <nav class="px-4 py-3 grid gap-2 text-sm font-subheading">
         <a href="#about" class="py-2 hover:text-primary">O WCC</a>
@@ -95,7 +102,6 @@
       </nav>
     </div>
   </header>
-
 <!-- HERO -->
 <section class="relative overflow-hidden min-h-[70vh]">
   <div class="absolute inset-0 bg-hero-grid"></div>
