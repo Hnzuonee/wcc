@@ -49,11 +49,45 @@
     }
   </script>
   <style>
-    html{scroll-behavior:smooth}
-    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    .text-gradient { background: linear-gradient(90deg, theme(colors.primary), theme(colors.secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; text-shadow: 0 0 15px theme(colors.primary / 0.5), 0 0 15px theme(colors.secondary / 0.5); }
-    .stat-highlight { color: theme(colors.primary); text-shadow: 0 0 10px theme(colors.primary / 0.8); }
-    .nav-link:hover { color: theme(colors.accent); text-shadow: 0 0 10px theme(colors.accent / 0.8); }
+    /* Základní nastavení - vynutí černou hned při startu */
+    html, body {
+        background-color: #0E0E0E; 
+        color: #ffffff;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased; 
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Oprava gradientu - fallback pro jistotu */
+    .text-gradient { 
+        background: linear-gradient(90deg, #E41C1C, #C93EFF); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+        background-clip: text; 
+        color: transparent; 
+        /* Tohle zajistí, že text bude vidět i když gradient selže */
+        text-shadow: 0 0 15px rgba(228, 28, 28, 0.5), 0 0 15px rgba(201, 62, 255, 0.5);
+    }
+
+    /* Kdyby prohlížeč neuměl ořezávat pozadí podle textu */
+    @supports not (background-clip: text) {
+        .text-gradient {
+            background: none;
+            -webkit-text-fill-color: #ffffff;
+            color: #ffffff;
+            text-shadow: 0 0 10px #E41C1C;
+        }
+    }
+
+    .stat-highlight { 
+        color: #E41C1C; 
+        text-shadow: 0 0 10px rgba(228, 28, 28, 0.8); 
+    }
+
+    .nav-link:hover { 
+        color: #00C6FF; 
+        text-shadow: 0 0 10px rgba(0, 198, 255, 0.8); 
+    }
   </style>
 </head>
 <body class="bg-graphite text-white font-sans">
