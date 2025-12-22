@@ -113,13 +113,26 @@
         <a href="#contact" class="nav-link transition">Přihláška</a>
       </nav>
       
-      <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover:bg-white/5" aria-label="Menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <button
+        id="mobileMenuBtn"
+        class="md:hidden p-2 rounded hover:bg-white/5"
+        aria-label="Menu"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+        type="button"
+      >
+        <svg width="24" height="24" fill="none" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
       </button>
     </div>
 
-    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
-      <nav class="px-4 py-3 grid gap-2 text-sm font-subheading">
+    <!-- Mobile menu: "hezky" = animace + a11y, bez změn obsahu -->
+    <div
+      id="mobileMenu"
+      class="md:hidden border-t border-white/10 overflow-hidden max-h-0 opacity-0 pointer-events-none transition-all duration-200 ease-out"
+    >
+      <nav class="px-4 py-3 grid gap-2 text-sm font-subheading" aria-label="Mobilní navigace">
         <a href="#about" class="py-2 hover:text-primary">O WCC</a>
         <a href="#athletes" class="py-2 hover:text-primary">Modelky</a>
         <a href="#disciplines" class="py-2 hover:text-primary">Disciplíny</a>
@@ -368,8 +381,8 @@
           <p class="mt-3 text-white/80">Hledáme nové talenty, partnery a mediální spolupráce. Sezona běží, nábor otevřen.</p>
         </div>
         <div class="grid sm:grid-cols-2 gap-4 font-subheading">
-          <a href="mailto:media@worldworkingchampionship.com" class="block text-center px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 font-semibold">Média & Tisk</a>
-          <a href="mailto:casting@worldworkingchampionship.com" class="block text-center px-6 py-4 rounded-xl bg-brand-gradient hover:opacity-90 transition-opacity shadow-glow font-semibold">Chci soutěžit</a>
+          <a href="mailto:info@worldworkingchampionship.com" class="block text-center px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 font-semibold">Média & Tisk</a>
+          <a href="mailto:info@worldworkingchampionship.com" class="block text-center px-6 py-4 rounded-xl bg-brand-gradient hover:opacity-90 transition-opacity shadow-glow font-semibold">Chci soutěžit</a>
         </div>
       </div>
     </div>
@@ -455,3 +468,61 @@
 
   </div>
 </footer>
+
+<!-- ✅ Jediná funkční změna: hezké + přístupné mobile menu -->
+<script>
+  (() => {
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+
+    const OPEN_CLASSES = ['max-h-[420px]', 'opacity-100', 'pointer-events-auto'];
+    const CLOSED_CLASSES = ['max-h-0', 'opacity-0', 'pointer-events-none'];
+
+    const isOpen = () => btn.getAttribute('aria-expanded') === 'true';
+
+    const openMenu = () => {
+      btn.setAttribute('aria-expanded', 'true');
+      menu.classList.remove(...CLOSED_CLASSES);
+      menu.classList.add(...OPEN_CLASSES);
+    };
+
+    const closeMenu = () => {
+      btn.setAttribute('aria-expanded', 'false');
+      menu.classList.remove(...OPEN_CLASSES);
+      menu.classList.add(...CLOSED_CLASSES);
+    };
+
+    const toggleMenu = () => (isOpen() ? closeMenu() : openMenu());
+
+    // init state
+    closeMenu();
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleMenu();
+    });
+
+    // zavřít po kliku na odkaz
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => closeMenu());
+    });
+
+    // ESC zavře
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) closeMenu();
+    });
+
+    // klik mimo zavře
+    document.addEventListener('click', (e) => {
+      if (!isOpen()) return;
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      if (btn.contains(target) || menu.contains(target)) return;
+      closeMenu();
+    });
+  })();
+</script>
+
+</body>
+</html>
